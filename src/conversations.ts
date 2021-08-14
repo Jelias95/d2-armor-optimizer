@@ -5,7 +5,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-export async function ClassConversation(close: boolean): Promise<string> {
+export function ClassConversation(close: boolean): Promise<string> {
     return new Promise((resolve) => {
         rl.question(
             "What class are you? Warlock, Hunter, Titan: ",
@@ -21,7 +21,7 @@ export async function ClassConversation(close: boolean): Promise<string> {
     });
 }
 
-export async function StatConversation(
+export function StatConversation(
     priority: string,
     close: boolean
 ): Promise<string> {
@@ -43,13 +43,25 @@ export async function StatConversation(
     });
 }
 
-export async function ExoticConversation(close: boolean): Promise<string> {
+export function ExoticConversation(close: boolean): Promise<string> {
     return new Promise((resolve) => {
         rl.question(
             "What exotic do you want to build around? Leave blank if nothing: ",
             function (exotic: string) {
                 if (close) rl.close();
                 resolve(exotic);
+            }
+        );
+    });
+}
+
+export function FileLocationConversation(close: boolean): Promise<string> {
+    return new Promise((resolve) => {
+        rl.question(
+            "Where is your armor csv located? Full path please: ",
+            function (directory: string) {
+                if (close) rl.close();
+                resolve(directory);
             }
         );
     });
