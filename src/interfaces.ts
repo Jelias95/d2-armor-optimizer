@@ -5,11 +5,11 @@ export interface ArmorPiece {
     tier: string;
     type: string;
     class: string;
-    mobility: string;
-    resilience: string;
-    recovery: string;
-    discipline: string;
-    intellect: string;
-    strength: string;
-    total: string;
+    mobility: number;
+    resilience: number;
+    recovery: number;
+    discipline: number;
+    intellect: number;
+    strength: number;
+    total: number;
 }
